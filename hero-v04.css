@@ -6,7 +6,7 @@
 .hero-v04 .wordmark{display:block;color:#fff;text-decoration:none}
 .hero-v04 .wordmark img{display:block;width:145px;height:auto}
 .hero-v04 nav{display:flex;align-items:center;justify-content:space-between;gap:26px;width:270px}
-.hero-v04 nav a{font:400 14px/1.2 Inter,sans-serif;color:rgba(255,255,255,.92);text-decoration:none}
+.hero-v04 nav a{font:400 14px/1.2 Inter,sans-serif;color:rgba(255,255,255,.92);text-decoration:none;white-space:nowrap}
 .hero-v04 nav a:hover{color:#fff}
 .hero-v04 .hero-message{display:grid;grid-template-columns:minmax(0,730fr) minmax(0,455fr);gap:90px;align-items:start;margin:0;width:100%;max-width:1275px}
 .hero-v04 h1{font:400 48px/1.12 Inter,sans-serif;letter-spacing:0;max-width:730px;margin:0;color:#fff}

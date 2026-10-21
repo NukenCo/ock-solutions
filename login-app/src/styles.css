@@ -292,7 +292,7 @@ strong { font-weight: 600; }
 
 @media (max-width: 640px) {
   body { background: var(--bg-card); }
-  .auth { padding: 48px 20px 120px; background: var(--bg-card); }
+  .auth { padding: 48px 20px 40px; background: var(--bg-card); }
   .bands--desktop { display: none; }
   .bands--mobile { display: block; top: 0; height: 230px; opacity: 0.22; }
   .bands--mobile span { top: -113px; height: 343px; bottom: auto; width: 1.85%; }
@@ -327,6 +327,12 @@ strong { font-weight: 600; }
 .panel:not(.is-open) { width: auto; }
 .panel-toggle { display: flex; justify-content: space-between; gap: 16px; min-height: 44px; padding: 10px 14px; border: 0; background: none; color: inherit; font-weight: 600; cursor: pointer; }
 .panel-toggle:focus-visible, .panel button:focus-visible, .panel select:focus-visible, .panel input:focus-visible, .panel summary:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+@media (max-width: 640px) {
+  /* No celular, o painel fica no topo, ao lado da logo, para não cobrir as ações da tela. */
+  .panel { top: 12px; right: 12px; bottom: auto; }
+  .panel:not(.is-open) .panel-toggle { min-height: 36px; padding: 6px 10px; gap: 8px; }
+  .panel:not(.is-open) .panel-label { display: none; }
+}
 .panel-body { overflow-y: auto; padding: 0 14px 14px; display: flex; flex-direction: column; gap: 16px; }
 .panel section { display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px solid rgb(244 241 233 / 0.12); }
 .panel h2 { margin: 0; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); }

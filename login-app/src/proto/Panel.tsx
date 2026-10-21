@@ -185,7 +185,7 @@ export function PrototypePanel() {
   return (
     <aside className={`panel${open ? ' is-open' : ''}`} aria-label="Painel do protótipo">
       <button type="button" className="panel-toggle" onClick={toggle} aria-expanded={open}>
-        <span>Protótipo · {s.screen}</span>
+        <span><span className="panel-label">Protótipo · </span>{s.screen}</span>
         <span aria-hidden="true">{open ? '−' : '+'}</span>
       </button>
       {open && (

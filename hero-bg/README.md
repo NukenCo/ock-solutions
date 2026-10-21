@@ -1,6 +1,6 @@
 # Fundo animado do hero
 
-Instalação abstrata de painéis verticais de vidro fumê e bronze, com luz dourada passando por trás. Tudo é gerado em WebGL (React Three Fiber + GLSL), sem vídeo nem imagens.
+Instalação abstrata de lâminas horizontais de vidro fumê e bronze, com luz dourada deslizando na horizontal por trás delas. Tudo é gerado em WebGL (React Three Fiber + GLSL), sem vídeo nem imagens.
 
 ## Comandos
 
@@ -24,7 +24,7 @@ O site continua estático: o build é feito aqui e o resultado é commitado em `
 |---|---|
 | `src/HeroBackground.tsx` | Componente: canvas, fallback estático, camada escura, pausa fora da tela ou com a aba oculta, movimento reduzido |
 | `src/GlassPanels.tsx` | Plano em tela cheia com o shader; atualiza os uniforms a cada quadro sem re-render do React |
-| `src/shaders/glass.frag.glsl` | Luz procedural, três camadas de painéis com refração e parallax, dither contra banding |
+| `src/shaders/glass.frag.glsl` | Luz procedural, três camadas de lâminas horizontais com refração e parallax, dither contra banding |
 | `src/config.ts` | Parâmetros, valores padrão, paleta e o store de configuração |
 | `src/ControlPanel.tsx` | Painel de ajustes |
 | `src/mount.tsx` | Entrada do build para o site estático |

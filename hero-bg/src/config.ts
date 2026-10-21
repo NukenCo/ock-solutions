@@ -8,7 +8,7 @@ export interface HeroBackgroundConfig {
   lightIntensity: number;
   /** 0 = monocromático, 1 = paleta original, >1 = dourado mais vivo. */
   goldSaturation: number;
-  /** Quantidade aproximada de painéis num enquadramento 16:9. */
+  /** Densidade das lâminas horizontais: cerca de 2/3 deste valor cabem na altura da tela. */
   panelCount: number;
   /** Quanto o vidro fumê escurece a luz que passa pelos painéis. */
   panelOpacity: number;
@@ -52,7 +52,7 @@ export const configFields: ConfigField[] = [
   { key: 'speed', label: 'Velocidade', min: 0, max: 4, step: 0.05 },
   { key: 'lightIntensity', label: 'Intensidade da luz', min: 0, max: 2.5, step: 0.05 },
   { key: 'goldSaturation', label: 'Saturação do dourado', min: 0, max: 2, step: 0.05 },
-  { key: 'panelCount', label: 'Quantidade de painéis', min: 4, max: 40, step: 1 },
+  { key: 'panelCount', label: 'Quantidade de lâminas', min: 4, max: 40, step: 1 },
   { key: 'panelOpacity', label: 'Opacidade dos painéis', min: 0, max: 1, step: 0.01 },
   { key: 'panelSpacing', label: 'Espaçamento', min: 0, max: 0.6, step: 0.01 },
   { key: 'blur', label: 'Desfoque', min: 0, max: 1, step: 0.01 },

@@ -1,8 +1,9 @@
-// Instalação de painéis verticais de vidro fumê e bronze escovado, com luz dourada por trás.
+// Instalação de lâminas horizontais de vidro fumê e bronze escovado, com luz dourada
+// deslizando na horizontal por trás delas.
 //
 // Tudo acontece numa única passada: um campo de luz procedural (lightField) é visto
-// diretamente nas frestas e, através de cada painel, refratado — comprimido na horizontal
-// e deslocado na vertical —, o que cria os destaques escalonados entre as pregas.
+// diretamente nas frestas e, através de cada lâmina, refratado — comprimido na vertical
+// e deslocado na horizontal —, o que cria os destaques escalonados entre as lâminas.
 //
 // Loop contínuo: o tempo vira uma fase 0–2π e todo movimento usa sin/cos dessa fase com
 // frequências inteiras, então o último quadro do ciclo é idêntico ao primeiro.
@@ -45,7 +46,7 @@ float hash21(vec2 p) {
   return fract(p.x * p.y);
 }
 
-// Fonte de luz gaussiana anisotrópica — alongada na vertical, como reflexos em vidro canelado.
+// Fonte de luz gaussiana anisotrópica — alongada na horizontal, acompanhando as lâminas.
 float glow(vec2 q, vec2 center, vec2 radius) {
   vec2 d = (q - center) / radius;
   return exp(-dot(d, d));
@@ -56,19 +57,20 @@ float lightField(vec2 q, float ph) {
   float soft = mix(0.7, 1.4, uBlur);
   float l = 0.0;
 
-  // Cada fonte orbita devagar e pulsa — surge, se move e se dissolve.
-  l += glow(q, vec2(-0.75 + 0.40 * sin(ph + 0.4), 0.35 + 0.20 * sin(2.0 * ph + 1.3)), vec2(0.70, 0.52) * soft)
+  // Cada fonte desliza na horizontal (grande amplitude em x, quase nada em y) e pulsa —
+  // surge, atravessa e se dissolve.
+  l += glow(q, vec2(-0.40 + 1.10 * sin(ph + 0.4), 0.45 + 0.06 * sin(2.0 * ph + 1.3)), vec2(0.85, 0.42) * soft)
      * (0.70 + 0.30 * sin(ph + 2.0));
-  l += glow(q, vec2(0.55 + 0.35 * sin(ph + 2.6), -0.05 + 0.25 * cos(ph + 0.7)), vec2(0.60, 0.46) * soft)
+  l += glow(q, vec2(0.30 + 1.25 * sin(ph + 2.6), -0.10 + 0.08 * cos(ph + 0.7)), vec2(0.75, 0.36) * soft)
      * (0.60 + 0.40 * sin(2.0 * ph + 4.1));
-  l += glow(q, vec2(-0.05 + 0.60 * sin(ph + 4.3), -0.55 + 0.18 * sin(3.0 * ph)), vec2(0.50, 0.38) * soft)
+  l += glow(q, vec2(-0.10 + 1.40 * cos(ph + 4.3), -0.62 + 0.05 * sin(3.0 * ph)), vec2(0.65, 0.30) * soft)
      * (0.45 + 0.55 * sin(ph + 5.2) * sin(ph + 5.2));
-  l += glow(q, vec2(1.35 + 0.30 * cos(2.0 * ph + 1.1), 0.50 + 0.22 * sin(ph + 3.3)), vec2(0.62, 0.50) * soft)
+  l += glow(q, vec2(0.90 * sin(2.0 * ph + 1.1), 0.80 + 0.05 * sin(ph + 3.3)), vec2(0.80, 0.34) * soft)
      * (0.55 + 0.45 * cos(ph + 1.7));
 
-  // Faixa diagonal larga que atravessa a cena, como na referência.
-  float diagonal = q.y + 0.45 * q.x - 0.40 * sin(ph + 0.9);
-  l += 0.38 * exp(-diagonal * diagonal / (0.08 * soft)) * (0.60 + 0.40 * sin(ph + 3.0));
+  // Faixa diagonal larga que atravessa a cena, varrendo da esquerda para a direita.
+  float diagonal = q.x + 0.55 * q.y - 1.20 * sin(ph + 0.9);
+  l += 0.38 * exp(-diagonal * diagonal / (0.10 * soft)) * (0.60 + 0.40 * sin(ph + 3.0));
 
   return l * uIntensity;
 }
@@ -95,17 +97,17 @@ void main() {
 
   vec3 col = ramp(lightField(vec2(q.x * lightScaleX, q.y), ph));
 
-  // Painéis por unidade de q.x, calibrados para `uPanelCount` num quadro 16:9.
-  float baseDensity = uPanelCount / (2.0 * REFERENCE_ASPECT);
+  // Lâminas por unidade de q.y (a altura vale 2 unidades), calibradas por `uPanelCount`.
+  float baseDensity = uPanelCount / 3.0;
 
   for (int j = 0; j < LAYERS; j++) {
     float fj = float(j);
     float depth = 0.45 + 0.275 * fj;                  // 0 = fundo, 2 = frente
-    float density = baseDensity * (1.15 - 0.15 * fj); // painéis da frente são mais largos
+    float density = baseDensity * (1.15 - 0.15 * fj); // lâminas da frente são mais altas
 
-    // Parallax: deriva lenta no tempo + leve resposta ao ponteiro, maior nas camadas da frente.
-    float drift = uParallax * depth * (0.06 * sin(ph + fj * 2.1) + 0.035 * uPointer.x);
-    float s = (q.x + drift) * density + fj * 0.37;
+    // Parallax: deriva vertical lenta no tempo + leve resposta ao ponteiro, maior na frente.
+    float drift = uParallax * depth * (0.05 * sin(ph + fj * 2.1) + 0.03 * uPointer.y);
+    float s = (q.y + drift) * density + fj * 0.37;
     // Distorção monotônica (derivada sempre > 0): larguras variadas sem padrão repetitivo.
     s += 0.18 * sin(s * 2.1 + fj * 1.7) + 0.05 * sin(s * 5.3 + fj * 4.1);
 
@@ -119,19 +121,19 @@ void main() {
     float gap = clamp(uSpacing * (0.4 + 1.2 * h2), 0.0, 0.9);
     float aa = fwidth(s) * 1.5 + uBlur * 0.015;
     float mask = smoothstep(0.0, aa, f) * smoothstep(0.0, aa, (1.0 - gap) - f) * present;
-    float u = clamp(f / (1.0 - gap), 0.0, 1.0);       // 0..1 na largura do painel
+    float u = clamp(f / (1.0 - gap), 0.0, 1.0);       // 0..1 na altura da lâmina
 
-    // Refração: o painel mostra uma fatia estreita da luz (comprimida em direção ao centro)
-    // e deslocada na vertical — cada prega acende numa altura diferente.
+    // Refração: a lâmina mostra uma faixa estreita da luz (comprimida em direção ao centro)
+    // e deslocada na horizontal — cada lâmina acende num ponto diferente.
     vec2 rq = q;
-    rq.x += (0.5 - u) * (0.65 + 0.25 * h1) / density;
-    rq.y += (u - 0.5) * (h2 - 0.5) * 0.8 + (h1 - 0.5) * 1.10 * depth;
-    rq.y += uParallax * depth * 0.04 * sin(ph + fj * 1.3 + h1 * TAU);
+    rq.y += (0.5 - u) * (0.65 + 0.25 * h1) / density;
+    rq.x += (u - 0.5) * (h2 - 0.5) * 1.0 + (h1 - 0.5) * 1.60 * depth;
+    rq.x += uParallax * depth * 0.08 * sin(ph + fj * 1.3 + h1 * TAU);
     float light = lightField(vec2(rq.x * lightScaleX, rq.y), ph);
 
-    // Bronze escovado: estrias verticais muito finas, só na largura do painel.
+    // Bronze escovado: estrias horizontais muito finas, só na altura da lâmina.
     float brushed = 0.94 + 0.06 * sin(u * 61.0 + h1 * 20.0) * sin(u * 23.0 + h2 * 9.0);
-    // Perfil canelado: centro do painel recebe mais luz que as bordas.
+    // Perfil canelado: centro da lâmina recebe mais luz que as bordas.
     float curve = sin(u * PI);
     vec3 glass = ramp(light * (0.55 + 0.45 * curve) * brushed);
 
@@ -139,7 +141,7 @@ void main() {
     float smoke = uPanelOpacity * (0.6 + 0.4 * h2);
     glass = mix(glass, glass * vec3(0.92, 0.74, 0.55) * 0.7, smoke);
 
-    // Aresta iluminada à esquerda, reflexo mais fraco à direita, vinco escuro nas extremidades.
+    // Aresta iluminada embaixo, reflexo mais fraco em cima, vinco escuro nas extremidades.
     float edgeWidth = 0.012 + aa;
     float rim = exp(-pow(u / edgeWidth, 2.0)) + 0.35 * exp(-pow((1.0 - u) / (edgeWidth * 0.7), 2.0));
     glass += ramp(light * 1.3) * rim * 0.6 * (0.5 + 0.5 * h1);

@@ -18,13 +18,13 @@
   position: absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(90deg,
-      transparent 0 5.6%,
-      rgb(232 201 144 / 0.07) 5.8%,
-      rgb(11 11 11 / 0.55) 6.4%,
-      transparent 7.4%),
-    radial-gradient(ellipse 30% 75% at 20% 28%, rgb(213 183 122 / 0.42), transparent 70%),
-    radial-gradient(ellipse 26% 65% at 74% 52%, rgb(168 135 82 / 0.34), transparent 70%),
+    repeating-linear-gradient(180deg,
+      transparent 0 9.5%,
+      rgb(232 201 144 / 0.07) 9.8%,
+      rgb(11 11 11 / 0.55) 10.6%,
+      transparent 12%),
+    radial-gradient(ellipse 60% 22% at 30% 26%, rgb(213 183 122 / 0.42), transparent 70%),
+    radial-gradient(ellipse 50% 20% at 68% 58%, rgb(168 135 82 / 0.34), transparent 70%),
     radial-gradient(ellipse 60% 40% at 50% 100%, rgb(73 54 37 / 0.45), transparent 70%),
     linear-gradient(180deg, var(--ock-charcoal), var(--ock-bg) 75%);
 }
