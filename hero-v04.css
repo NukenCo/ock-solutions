@@ -3,10 +3,15 @@
 .hero-v04:after{display:none}
 .hero-v04 .hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .hero-v04 header{position:relative;width:100%;height:35px;display:flex;align-items:center;justify-content:space-between}
-.hero-v04 .wordmark{color:#fff;font:400 20px/1.2 Inter,sans-serif;letter-spacing:0;text-decoration:none}
+.hero-v04 .wordmark{display:block;color:#fff;text-decoration:none}
+.hero-v04 .wordmark img{display:block;width:145px;height:auto}
 .hero-v04 nav{display:flex;align-items:center;justify-content:space-between;gap:26px;width:270px}
-.hero-v04 nav a{font:400 12px/1.2 Inter,sans-serif;color:rgba(255,255,255,.92);text-decoration:none}
+.hero-v04 nav a{font:400 14px/1.2 Inter,sans-serif;color:rgba(255,255,255,.92);text-decoration:none}
 .hero-v04 nav a:hover{color:#fff}
+/* Botão Entrar — Figma node 80:4459. Texto em #a3a3a3 (tom do ícone) em vez de #525252, que não tem contraste no fundo escuro. */
+.hero-v04 nav a.login-button{display:inline-flex;align-items:center;gap:6px;font:600 16px/24px Inter,sans-serif;color:#a3a3a3}
+.hero-v04 nav a.login-button:hover{color:#d4d4d4}
+.hero-v04 nav a.login-button img{display:block;flex:none}
 .hero-v04 .hero-message{display:grid;grid-template-columns:minmax(0,730fr) minmax(0,455fr);gap:90px;align-items:start;margin:0;width:100%;max-width:1275px}
 .hero-v04 h1{font:400 48px/1.12 Inter,sans-serif;letter-spacing:0;max-width:730px;margin:0;color:#fff}
 .hero-v04 h1 span{display:block;color:inherit}
@@ -15,9 +20,8 @@
 .hero-v04 .text-link{display:flex;justify-content:space-between;align-items:center;width:210px;border:0;padding:0;margin:0;color:#fff;font:400 12px/1.2 Inter,sans-serif;text-decoration:none}
 .hero-v04 .text-link:hover{color:#fff}
 .hero-v04 .text-link b{font-weight:400}
-.hero-v04 .hero-bottom{display:flex;justify-content:space-between;align-items:center;min-height:16px;width:100%;border:0;padding:0;color:rgba(255,255,255,.88);font:400 10px/1.2 Inter,sans-serif;letter-spacing:0;text-transform:none}
-.hero-v04 .hero-bottom span:last-child{width:150px}
+.hero-v04 .hero-bottom{display:flex;justify-content:space-between;align-items:center;min-height:16px;width:100%;border:0;padding:0;color:rgba(255,255,255,.88);font:400 16px/1.2 Inter,sans-serif;letter-spacing:0;text-transform:none}
 .hero-v04 a:focus-visible{outline:2px solid #e8c990;outline-offset:6px}
 @media(min-width:1600px){.hero-v04 .hero-message{max-width:none;grid-template-columns:minmax(0,730px) minmax(0,455px);justify-content:space-between}}
 @media(max-width:1000px){.hero-v04 .hero-message{gap:40px;grid-template-columns:1.4fr 1fr}.hero-v04 h1{font-size:40px}}
-@media(max-width:760px){.hero.hero-v04{padding:25px 22px;min-height:720px;height:100svh;max-height:none}.hero-v04 header{height:28px}.hero-v04 .wordmark{font-size:18px}.hero-v04 nav{width:auto;gap:18px}.hero-v04 nav a{font-size:11px}.hero-v04 nav a:nth-child(2){display:none}.hero-v04 .hero-message{display:flex;flex-direction:column;gap:32px;max-width:520px}.hero-v04 h1{font-size:36px;line-height:1.12;letter-spacing:-.025em}.hero-v04 .hero-support{max-width:340px;gap:26px}.hero-v04 .hero-support p{font-size:16px;line-height:1.35}.hero-v04 .hero-bottom{font-size:9px;gap:20px}.hero-v04 .hero-bottom span:last-child{width:auto;white-space:nowrap}}
+@media(max-width:760px){.hero.hero-v04{padding:25px 22px;min-height:720px;height:100svh;max-height:none}.hero-v04 header{height:28px}.hero-v04 .wordmark img{width:120px}.hero-v04 nav{width:auto;gap:18px}.hero-v04 nav a:nth-child(2){display:none}.hero-v04 .hero-message{display:flex;flex-direction:column;gap:32px;max-width:520px}.hero-v04 h1{font-size:36px;line-height:1.12;letter-spacing:-.025em}.hero-v04 .hero-support{max-width:340px;gap:26px}.hero-v04 .hero-support p{font-size:16px;line-height:1.35}.hero-v04 .hero-bottom{font-size:14px;gap:8px 20px;flex-wrap:wrap}.hero-v04 .hero-bottom span:last-child{white-space:nowrap}}

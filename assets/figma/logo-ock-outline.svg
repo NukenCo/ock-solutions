@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="620.688" height="300" viewBox="0 0 620.688 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="LogoOCK">
+<mask id="stroke0_0_20" fill="white">
+<path d="M148.881 0C231.1 0 297.762 67.0229 297.762 149.687C297.762 232.351 231.1 299.374 148.881 299.374C66.662 299.374 0 232.351 0 149.687C0 67.0229 66.662 0 148.881 0Z" fill-rule="evenodd" clip-rule="evenodd"/>
+</mask>
+<path id="Vector" d="M148.881 0C231.1 0 297.762 67.0229 297.762 149.687C297.762 232.351 231.1 299.374 148.881 299.374C66.662 299.374 0 232.351 0 149.687C0 67.0229 66.662 0 148.881 0Z" stroke-width="2" stroke="#F6F1E4" stroke-opacity="0.3" mask="url(#stroke0_0_20)"/>
+<mask id="stroke1_0_20" fill="white">
+<path d="M446.76 0C364.541 0 297.879 67.0229 297.879 149.687C297.879 232.351 364.541 299.374 446.76 299.374V0Z" fill-rule="evenodd" clip-rule="evenodd"/>
+</mask>
+<path id="Vector_2" d="M446.76 0C364.541 0 297.879 67.0229 297.879 149.687C297.879 232.351 364.541 299.374 446.76 299.374V0Z" stroke-width="2" stroke="#F6F1E4" stroke-opacity="0.3" mask="url(#stroke1_0_20)"/>
+<mask id="stroke2_0_20" fill="white">
+<path d="M620.688 0.469235L471.729 150.235L620.688 300V0.469235Z" fill-rule="evenodd" clip-rule="evenodd"/>
+</mask>
+<path id="Vector_3" d="M620.688 0.469235L471.729 150.235L620.688 300V0.469235Z" stroke-width="2" stroke="#F6F1E4" stroke-opacity="0.3" mask="url(#stroke2_0_20)"/>
+</g>
+</svg>

@@ -1,0 +1,18 @@
+/* V05 — rodapé do Figma, node 74:2317 (botão: node 80:4413). Substitui o footer.atmosphere de midnight.css. */
+.site-footer{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:25px;min-height:0;padding:60px 4.02778% 30px;background:#131106;color:#fff;font-family:Inter,sans-serif}
+.site-footer .footer-eyebrow{display:flex;flex-wrap:wrap;gap:25px;font:400 9px/1.4 Inter,sans-serif;letter-spacing:0;color:#fff}
+.site-footer h2{margin:0;font:400 66px/1.1 Inter,sans-serif;letter-spacing:0;color:#fff}
+.site-footer .footer-lead{margin:0;font:400 15px/1.4 Inter,sans-serif;color:#fff}
+.site-footer .footer-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px 10px 18px;background:#fff;border:1px solid #d4d4d4;border-radius:8px;color:#404040;font:600 16px/24px Inter,sans-serif;white-space:nowrap;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.05),inset 0 0 0 1px rgba(0,0,0,.18),inset 0 -2px 0 rgba(0,0,0,.05)}
+.site-footer .footer-button:hover{background:#fafafa}
+.site-footer .footer-button img{display:block;flex:none}
+.site-footer .feedback{margin:0;font-size:13px;color:rgba(255,255,255,.8)}
+.site-footer .feedback:empty{display:none}
+.site-footer .footer-brand{display:flex;flex-direction:column;gap:20px;padding-top:100px;font:400 10px/1.4 Inter,sans-serif}
+.site-footer .footer-wordmark{font-size:20px;line-height:1.4;color:#fff;text-decoration:none}
+.site-footer .footer-meta{display:grid;grid-template-columns:209px auto;font-size:10px;color:#fff}
+.site-footer .footer-meta a{color:#fff;text-decoration:none}
+.site-footer a:focus-visible,.site-footer button:focus-visible{outline:2px solid #e8c990;outline-offset:4px}
+.site-footer .footer-logo{position:absolute;z-index:-1;top:370px;right:5.65%;width:621px;height:300px;max-width:none;pointer-events:none}
+@media(max-width:1000px){.site-footer h2{font-size:52px}.site-footer .footer-logo{right:-60px}}
+@media(max-width:760px){.site-footer{padding:35px 22px 25px}.site-footer h2{font-size:40px}.site-footer .footer-brand{padding-top:80px}.site-footer .footer-meta{grid-template-columns:auto auto;justify-content:start;gap:40px}.site-footer .footer-logo{top:auto;bottom:-70px;right:-190px;width:414px;height:200px}}
