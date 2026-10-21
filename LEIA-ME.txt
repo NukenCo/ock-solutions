@@ -1,0 +1,4 @@
+OCK Solutions — HTML V04
+Abra index.html no navegador. Mantenha os arquivos e a pasta assets juntos.
+Hero baseado no Figma 74:4302. Demais seções preservadas da V03.
+Endereços de acesso e WhatsApp permanecem para configuração.

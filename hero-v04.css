@@ -1,0 +1,22 @@
+/* V04 — composição do hero de referência, node 74:4302. */
+.hero.hero-v04{background:#f3efe6;color:#000;isolation:isolate;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:35px 4.02778% 27px;min-height:760px;height:100svh;max-height:none}
+.hero-v04:after{display:none}
+.vertical-pattern{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.vertical-pattern i{position:absolute;top:0;bottom:0;left:calc(var(--x)/1440*100%);width:1.111111%;opacity:.3;background:linear-gradient(to bottom,rgba(217,168,0,0) var(--start),#b38600 var(--peak),rgba(217,168,0,0) var(--end))}
+.hero-v04 header{position:relative;width:100%;height:35px;display:flex;align-items:center;justify-content:space-between}
+.hero-v04 .wordmark{color:#000;font:400 20px/1.2 Inter,sans-serif;letter-spacing:0;text-decoration:none}
+.hero-v04 nav{display:flex;align-items:center;justify-content:space-between;gap:26px;width:270px}
+.hero-v04 nav a{font:400 12px/1.2 Inter,sans-serif;color:rgba(0,0,0,.85);text-decoration:none}
+.hero-v04 .hero-message{display:grid;grid-template-columns:minmax(0,730fr) minmax(0,455fr);gap:90px;align-items:start;margin:0;width:100%;max-width:1275px}
+.hero-v04 h1{font:400 48px/1.12 Inter,sans-serif;letter-spacing:0;max-width:730px;margin:0;color:#000}
+.hero-v04 h1 span{display:block;color:inherit}
+.hero-v04 .hero-support{max-width:455px;display:flex;flex-direction:column;gap:35px;padding:0;margin:0}
+.hero-v04 .hero-support p{font:400 18px/1.12 Inter,sans-serif;letter-spacing:0;margin:0;color:rgba(0,0,0,.85)}
+.hero-v04 .text-link{display:flex;justify-content:space-between;align-items:center;width:210px;border:0;padding:0;margin:0;color:rgba(0,0,0,.85);font:400 12px/1.2 Inter,sans-serif;text-decoration:none}
+.hero-v04 .text-link b{font-weight:400}
+.hero-v04 .hero-bottom{display:flex;justify-content:space-between;align-items:center;min-height:16px;width:100%;border:0;padding:0;color:rgba(0,0,0,.5);font:400 10px/1.2 Inter,sans-serif;letter-spacing:0;text-transform:none}
+.hero-v04 .hero-bottom span:last-child{width:150px}
+.hero-v04 a:focus-visible{outline:2px solid #8a6900;outline-offset:6px}
+@media(min-width:1600px){.hero-v04 .hero-message{max-width:none;grid-template-columns:minmax(0,730px) minmax(0,455px);justify-content:space-between}}
+@media(max-width:1000px){.hero-v04 .hero-message{gap:40px;grid-template-columns:1.4fr 1fr}.hero-v04 h1{font-size:40px}}
+@media(max-width:760px){.hero.hero-v04{padding:25px 22px;min-height:720px;height:100svh;max-height:none}.hero-v04 header{height:28px}.hero-v04 .wordmark{font-size:18px}.hero-v04 nav{width:auto;gap:18px}.hero-v04 nav a{font-size:11px}.hero-v04 nav a:nth-child(2){display:none}.hero-v04 .hero-message{display:flex;flex-direction:column;gap:32px;max-width:520px}.hero-v04 h1{font-size:36px;line-height:1.12;letter-spacing:-.025em}.hero-v04 .hero-support{max-width:340px;gap:26px}.hero-v04 .hero-support p{font-size:16px;line-height:1.35}.hero-v04 .hero-bottom{font-size:9px;gap:20px}.hero-v04 .hero-bottom span:last-child{width:auto;white-space:nowrap}.vertical-pattern{width:1000px;left:50%;right:auto;transform:translateX(-50%)}.vertical-pattern i{width:1.111111%}}
