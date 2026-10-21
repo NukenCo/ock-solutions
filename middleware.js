@@ -6,6 +6,8 @@ const COOKIE = 'ock_acesso';
 const MAX_AGE = 60 * 60 * 24 * 7; // 7 dias
 
 export const config = {
+  // Node.js lê as variáveis de ambiente em tempo de execução.
+  runtime: 'nodejs',
   // Fica de fora só o que a tela de senha precisa para renderizar.
   matcher: ['/((?!acesso/|assets/ock-logo\\.svg|assets/Inter-|robots\\.txt|favicon).*)'],
 };
