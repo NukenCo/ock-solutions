@@ -8,7 +8,7 @@
 .hero-v04 nav{display:flex;align-items:center;justify-content:space-between;gap:26px;width:270px}
 .hero-v04 nav a{font:400 14px/1.2 Inter,sans-serif;color:rgba(255,255,255,.92);text-decoration:none;white-space:nowrap}
 .hero-v04 nav a:hover{color:#fff}
-.hero-v04 .hero-message{display:grid;grid-template-columns:minmax(0,730fr) minmax(0,455fr);gap:90px;align-items:start;margin:0;width:100%;max-width:1275px}
+.hero-v04 .hero-message{display:grid;grid-template-columns:minmax(0,730fr) minmax(0,455fr);gap:90px;align-items:start;margin:auto 0;width:100%;max-width:1275px}
 .hero-v04 h1{font:400 48px/1.12 Inter,sans-serif;letter-spacing:0;max-width:730px;margin:0;color:#fff}
 .hero-v04 h1 span{display:block;color:inherit}
 .hero-v04 .hero-support{max-width:455px;display:flex;flex-direction:column;gap:35px;padding:0;margin:0}
@@ -21,3 +21,13 @@
 @media(min-width:1600px){.hero-v04 .hero-message{max-width:none;grid-template-columns:minmax(0,730px) minmax(0,455px);justify-content:space-between}}
 @media(max-width:1000px){.hero-v04 .hero-message{gap:40px;grid-template-columns:1.4fr 1fr}.hero-v04 h1{font-size:40px}}
 @media(max-width:760px){.hero.hero-v04{padding:25px 22px;min-height:720px;height:100svh;max-height:none}.hero-v04 header{height:28px}.hero-v04 .wordmark img{width:120px}.hero-v04 nav{width:auto;gap:18px}.hero-v04 nav a:nth-child(2){display:none}.hero-v04 .hero-message{display:flex;flex-direction:column;gap:32px;max-width:520px}.hero-v04 h1{font-size:36px;line-height:1.12;letter-spacing:-.025em}.hero-v04 .hero-support{max-width:340px;gap:26px}.hero-v04 .hero-support p{font-size:16px;line-height:1.35}.hero-v04 .hero-bottom{font-size:14px;gap:8px 20px;flex-wrap:wrap}.hero-v04 .hero-bottom span:last-child{white-space:nowrap}}
+/* Carrossel de marcas (fictícias) entre a mensagem e o rodapé do hero: loop contínuo e lento. */
+.hero-v04 .hero-brands{width:100%;margin:0 0 36px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.hero-v04 .hero-brands-track{display:flex;width:max-content;animation:hero-brands 60s linear infinite}
+.hero-v04 .hero-brands-list{display:flex;align-items:center;gap:64px;margin:0;padding:0 64px 0 0;list-style:none}
+.hero-v04 .hero-brand{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.72);font:500 19px/1 Inter,sans-serif;letter-spacing:-.01em;white-space:nowrap}
+.hero-v04 .hero-brand svg{flex:none}
+@keyframes hero-brands{to{transform:translateX(-50%)}}
+/* Movimento contínuo para todos; com "reduzir movimento", mais lento (mesma decisão do fundo animado). */
+@media(prefers-reduced-motion:reduce){.hero-v04 .hero-brands-track{animation:hero-brands 120s linear infinite!important}}
+@media(max-width:760px){.hero-v04 .hero-brands{margin-bottom:24px}.hero-v04 .hero-brands-list{gap:40px;padding-right:40px}.hero-v04 .hero-brand{font-size:16px;gap:8px}.hero-v04 .hero-brand svg{width:20px;height:20px}.hero-v04 .hero-brands-track{animation-duration:45s}}
