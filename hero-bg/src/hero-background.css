@@ -1,0 +1,131 @@
+/* Fundo animado do hero. O contêiner ocupa o pai inteiro e nunca captura cliques ou toques. */
+.ock-hero-bg {
+  --ock-bg: #0b0b0b;
+  --ock-charcoal: #191919;
+  --ock-dark-bronze: #493625;
+  --ock-muted-gold: #a88752;
+  --ock-champagne: #d5b77a;
+  --ock-overlay: 0.3;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--ock-bg);
+}
+
+/* Fallback estático: aparece sem WebGL e enquanto o canvas carrega. */
+.ock-hero-bg__fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0 5.6%,
+      rgb(232 201 144 / 0.07) 5.8%,
+      rgb(11 11 11 / 0.55) 6.4%,
+      transparent 7.4%),
+    radial-gradient(ellipse 30% 75% at 20% 28%, rgb(213 183 122 / 0.42), transparent 70%),
+    radial-gradient(ellipse 26% 65% at 74% 52%, rgb(168 135 82 / 0.34), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgb(73 54 37 / 0.45), transparent 70%),
+    linear-gradient(180deg, var(--ock-charcoal), var(--ock-bg) 75%);
+}
+
+.ock-hero-bg__canvas {
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+
+.ock-hero-bg.is-ready .ock-hero-bg__canvas {
+  opacity: 1;
+}
+
+/* Camada escura configurável, um pouco mais densa à esquerda, onde fica o título. */
+.ock-hero-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgb(11 11 11 / calc(var(--ock-overlay) + 0.15)) 0%,
+    rgb(11 11 11 / var(--ock-overlay)) 60%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ock-hero-bg__canvas {
+    transition: none;
+  }
+}
+
+/* Painel de ajustes (desenvolvimento). */
+.ock-controls {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  width: min(300px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  font: 12px/1.4 Inter, system-ui, sans-serif;
+  color: #f4f1e9;
+  background: rgb(20 20 20 / 0.92);
+  border: 1px solid rgb(213 183 122 / 0.25);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.ock-controls button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ock-controls__toggle {
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  background: none;
+  border: 0;
+}
+
+.ock-controls__body {
+  display: grid;
+  gap: 10px;
+  padding: 0 14px 14px;
+}
+
+.ock-controls__field {
+  display: grid;
+  gap: 4px;
+}
+
+.ock-controls__field span {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(244 241 233 / 0.8);
+}
+
+.ock-controls__field output {
+  font-variant-numeric: tabular-nums;
+  color: var(--ock-champagne, #d5b77a);
+}
+
+.ock-controls__field input {
+  width: 100%;
+  accent-color: #d5b77a;
+}
+
+.ock-controls__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.ock-controls__actions button {
+  flex: 1;
+  padding: 8px;
+  background: rgb(213 183 122 / 0.12);
+  border: 1px solid rgb(213 183 122 / 0.35);
+  border-radius: 6px;
+}
+
+.ock-controls :focus-visible {
+  outline: 2px solid #d5b77a;
+  outline-offset: 2px;
+}

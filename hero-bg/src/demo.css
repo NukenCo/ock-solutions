@@ -1,0 +1,10 @@
+html, body { margin: 0; background: #0b0b0b; }
+.demo-hero { position: relative; isolation: isolate; min-height: 100svh; display: grid; align-items: center; padding: 48px 6%; color: #fff; font-family: Inter, system-ui, sans-serif; overflow: hidden; }
+.demo-hero .ock-hero-bg { z-index: -1; }
+.demo-hero__content { max-width: 720px; }
+.demo-hero__eyebrow { margin: 0 0 24px; font-size: 13px; letter-spacing: .02em; color: rgb(255 255 255 / .72); }
+.demo-hero h1 { margin: 0; font-weight: 400; font-size: clamp(34px, 5vw, 56px); line-height: 1.1; letter-spacing: -.02em; }
+.demo-hero__support { margin: 28px 0 40px; max-width: 460px; font-size: 18px; line-height: 1.45; color: rgb(255 255 255 / .8); }
+.demo-hero__cta { display: inline-flex; gap: 40px; padding: 14px 22px; border-radius: 999px; color: #0b0b0b; background: #e8c990; text-decoration: none; font-size: 14px; }
+.demo-hero__cta:hover { background: #f1d9a8; }
+.demo-hero__cta:focus-visible { outline: 2px solid #e8c990; outline-offset: 4px; }
