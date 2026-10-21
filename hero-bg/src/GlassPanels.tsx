@@ -49,7 +49,7 @@ export function GlassPanels({ store, reducedMotion }: GlassPanelsProps) {
     [],
   );
 
-  // Com a animação pausada (frameloop 'never'), mudanças no painel de ajustes pedem um novo quadro.
+  // Com a animação parada (aba oculta ou hero fora da tela), mudanças no painel de ajustes pedem um novo quadro.
   useEffect(() => store.subscribe(() => invalidate()), [store, invalidate]);
 
   useEffect(() => {

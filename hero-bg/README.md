@@ -34,6 +34,5 @@ O site continua estático: o build é feito aqui e o resultado é commitado em `
 
 - O loop é contínuo: o tempo vira uma fase de 0 a 2π e todo movimento usa seno e cosseno com frequências inteiras.
 - A animação é contínua para todos. Com `prefers-reduced-motion`, ela fica mais lenta (35% da velocidade) e sem parallax.
-- Um botão no rodapé do hero (`[data-ock-hero-bg-toggle]`) pausa e retoma a animação (WCAG 2.2.2). O navegador lembra a escolha.
 - Sem WebGL 2, ou se o contexto WebGL for perdido, fica o degradê estático em CSS.
 - O DPR fica entre 1 e 1,5 no desktop e em 1 nas telas de toque.
