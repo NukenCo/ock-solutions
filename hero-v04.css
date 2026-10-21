@@ -17,7 +17,13 @@
 .hero-v04 .text-link:hover{color:#fff}
 .hero-v04 .text-link b{font-weight:400}
 .hero-v04 .hero-bottom{display:flex;justify-content:space-between;align-items:center;min-height:16px;width:100%;border:0;padding:0;color:rgba(255,255,255,.88);font:400 16px/1.2 Inter,sans-serif;letter-spacing:0;text-transform:none}
-.hero-v04 a:focus-visible{outline:2px solid #e8c990;outline-offset:6px}
+.hero-v04 a:focus-visible,.hero-v04 .hero-motion:focus-visible{outline:2px solid #e8c990;outline-offset:6px}
+/* Pausar/retomar o fundo animado (WCAG 2.2.2). Só aparece quando o WebGL está disponível. */
+.hero-v04 .hero-motion{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 4px;border:0;background:none;color:rgba(255,255,255,.88);font:400 14px/1.2 Inter,sans-serif;cursor:pointer;white-space:nowrap}
+.hero-v04 .hero-motion[hidden]{display:none}
+.hero-v04 .hero-motion:hover{color:#fff}
+.hero-v04 .hero-motion svg{fill:currentColor;flex:none}
+.hero-v04 .hero-motion[data-state=paused] .hero-motion-pause,.hero-v04 .hero-motion:not([data-state=paused]) .hero-motion-play{display:none}
 @media(min-width:1600px){.hero-v04 .hero-message{max-width:none;grid-template-columns:minmax(0,730px) minmax(0,455px);justify-content:space-between}}
 @media(max-width:1000px){.hero-v04 .hero-message{gap:40px;grid-template-columns:1.4fr 1fr}.hero-v04 h1{font-size:40px}}
-@media(max-width:760px){.hero.hero-v04{padding:25px 22px;min-height:720px;height:100svh;max-height:none}.hero-v04 header{height:28px}.hero-v04 .wordmark img{width:120px}.hero-v04 nav{width:auto;gap:18px}.hero-v04 nav a:nth-child(2){display:none}.hero-v04 .hero-message{display:flex;flex-direction:column;gap:32px;max-width:520px}.hero-v04 h1{font-size:36px;line-height:1.12;letter-spacing:-.025em}.hero-v04 .hero-support{max-width:340px;gap:26px}.hero-v04 .hero-support p{font-size:16px;line-height:1.35}.hero-v04 .hero-bottom{font-size:14px;gap:8px 20px;flex-wrap:wrap}.hero-v04 .hero-bottom span:last-child{white-space:nowrap}}
+@media(max-width:760px){.hero.hero-v04{padding:25px 22px;min-height:720px;height:100svh;max-height:none}.hero-v04 header{height:28px}.hero-v04 .wordmark img{width:120px}.hero-v04 nav{width:auto;gap:18px}.hero-v04 nav a:nth-child(2){display:none}.hero-v04 .hero-message{display:flex;flex-direction:column;gap:32px;max-width:520px}.hero-v04 h1{font-size:36px;line-height:1.12;letter-spacing:-.025em}.hero-v04 .hero-support{max-width:340px;gap:26px}.hero-v04 .hero-support p{font-size:16px;line-height:1.35}.hero-v04 .hero-bottom{font-size:14px;gap:4px 20px;flex-wrap:wrap}.hero-v04 .hero-motion{order:3;margin-left:-4px}.hero-v04 .hero-bottom span:last-child{white-space:nowrap}}

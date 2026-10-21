@@ -6,8 +6,10 @@ import { palette, type ConfigStore } from './config';
 import vertexShader from './shaders/glass.vert.glsl?raw';
 import fragmentShader from './shaders/glass.frag.glsl?raw';
 
-// Ponto do ciclo usado no primeiro quadro e no quadro estático (prefers-reduced-motion).
+// Ponto do ciclo usado no primeiro quadro.
 const STATIC_PHASE = 0.18;
+// Com prefers-reduced-motion a animação continua, mais lenta e sem parallax.
+const GENTLE_SPEED = 0.35;
 // Evita saltos ao voltar de uma aba em segundo plano.
 const MAX_DELTA = 1 / 20;
 
@@ -47,7 +49,7 @@ export function GlassPanels({ store, reducedMotion }: GlassPanelsProps) {
     [],
   );
 
-  // No modo sob demanda (movimento reduzido), mudanças no painel de ajustes pedem um novo quadro.
+  // Com a animação pausada (frameloop 'never'), mudanças no painel de ajustes pedem um novo quadro.
   useEffect(() => store.subscribe(() => invalidate()), [store, invalidate]);
 
   useEffect(() => {
@@ -68,10 +70,9 @@ export function GlassPanels({ store, reducedMotion }: GlassPanelsProps) {
     const config = store.get();
     const dt = Math.min(delta, MAX_DELTA);
 
-    if (!reducedMotion) {
-      elapsed.current = (elapsed.current + dt * config.speed) % config.loopDuration;
-      pointer.current.lerp(pointerTarget.current, 1 - Math.exp(-dt * 1.2));
-    }
+    const speed = config.speed * (reducedMotion ? GENTLE_SPEED : 1);
+    elapsed.current = (elapsed.current + dt * speed) % config.loopDuration;
+    pointer.current.lerp(pointerTarget.current, 1 - Math.exp(-dt * 1.2));
 
     const u = shader.uniforms;
     u.uTime.value = elapsed.current;
@@ -84,7 +85,7 @@ export function GlassPanels({ store, reducedMotion }: GlassPanelsProps) {
     u.uPanelOpacity.value = config.panelOpacity;
     u.uSpacing.value = config.panelSpacing;
     u.uBlur.value = config.blur;
-    u.uParallax.value = config.parallax;
+    u.uParallax.value = reducedMotion ? 0 : config.parallax;
     u.uDarkness.value = config.darkness;
   });
 

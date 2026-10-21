@@ -13,6 +13,8 @@ export interface HeroBackgroundProps {
   store?: ConfigStore;
   /** Mostra o painel de ajustes. */
   showControls?: boolean;
+  /** Pausa a animação no quadro atual (controle de pausa do hero, WCAG 2.2.2). */
+  paused?: boolean;
   className?: string;
 }
 
@@ -24,7 +26,7 @@ const GL_OPTIONS = {
   powerPreference: 'high-performance',
 } as const;
 
-export function HeroBackground({ config, store: externalStore, showControls = false, className }: HeroBackgroundProps) {
+export function HeroBackground({ config, store: externalStore, showControls = false, paused = false, className }: HeroBackgroundProps) {
   // `config` só define o estado inicial; depois, mudanças passam pelo store, sem re-render.
   const [ownStore] = useState(() => createConfigStore(config));
   const store = externalStore ?? ownStore;
@@ -49,7 +51,7 @@ export function HeroBackground({ config, store: externalStore, showControls = fa
     return store.subscribe(apply);
   }, [store]);
 
-  const frameloop = reducedMotion ? 'demand' : playing ? 'always' : 'never';
+  const frameloop = playing && !paused ? 'always' : 'never';
   const classes = ['ock-hero-bg', ready && 'is-ready', className].filter(Boolean).join(' ');
 
   return (
