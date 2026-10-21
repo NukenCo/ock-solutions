@@ -8,10 +8,6 @@
 .hero-v04 nav{display:flex;align-items:center;justify-content:space-between;gap:26px;width:270px}
 .hero-v04 nav a{font:400 14px/1.2 Inter,sans-serif;color:rgba(255,255,255,.92);text-decoration:none}
 .hero-v04 nav a:hover{color:#fff}
-/* Botão Entrar — Figma node 80:4459. Texto em #a3a3a3 (tom do ícone) em vez de #525252, que não tem contraste no fundo escuro. */
-.hero-v04 nav a.login-button{display:inline-flex;align-items:center;gap:6px;font:600 16px/24px Inter,sans-serif;color:#a3a3a3}
-.hero-v04 nav a.login-button:hover{color:#d4d4d4}
-.hero-v04 nav a.login-button img{display:block;flex:none}
 .hero-v04 .hero-message{display:grid;grid-template-columns:minmax(0,730fr) minmax(0,455fr);gap:90px;align-items:start;margin:0;width:100%;max-width:1275px}
 .hero-v04 h1{font:400 48px/1.12 Inter,sans-serif;letter-spacing:0;max-width:730px;margin:0;color:#fff}
 .hero-v04 h1 span{display:block;color:inherit}
