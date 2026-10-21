@@ -1,2 +1,3 @@
-hero-bg
-login-app
+# Só o código-fonte dos subprojetos fica fora do deploy; os builds em assets/hero-bg/ e login/ vão.
+/hero-bg/
+/login-app/
